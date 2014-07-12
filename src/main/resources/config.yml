@@ -1,0 +1,4 @@
+### The language file that should be used
+language: EN
+###
+chatPrefix: '&6[GR]&r '

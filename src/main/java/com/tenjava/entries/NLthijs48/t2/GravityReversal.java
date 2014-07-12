@@ -2,7 +2,7 @@ package com.tenjava.entries.NLthijs48.t2;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class TenJava extends JavaPlugin {
+public class GravityReversal extends JavaPlugin {
 	Arena arena = null;
 	
 	public void onEnable() {

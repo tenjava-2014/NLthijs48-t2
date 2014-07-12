@@ -25,6 +25,13 @@ Maven will download all required dependencies and build a ready-for-use plugin p
 
 ---------------------------------------
 
+Features
+-----------
+
+What does increase the replay value of Minecraft do you ask? Well, minigames definitely fulfill that purpose. That is why i'm starting to create a minigame :)
+
+---------------------------------------
+
 Usage
 -----
 

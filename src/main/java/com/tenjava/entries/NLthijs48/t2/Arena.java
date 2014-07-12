@@ -1,16 +1,15 @@
 package com.tenjava.entries.NLthijs48.t2;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class Arena {
 
-	ArrayList<Level> levels = null;
-	//String name = null;
+	private ArrayList<Level> levels = null;
+	private boolean editMode = false;
 	
 	public Arena() {
 		//this.name = name;
@@ -24,12 +23,17 @@ public class Arena {
 			for(String level : levels.getKeys(false)) {
 				this.levels.add(new Level(levels.getConfigurationSection(level)));
 			}
-		}
-		
+		}		
 		// TODO save all settings
 	}
 
+	public void addLevel(Level level) {
+		levels.add(level);
+	}
 	
+	public List<Level> getLevels() {
+		return levels;
+	}
 	
 	public boolean isReady() {
 		boolean result = true;
@@ -44,12 +48,9 @@ public class Arena {
 	
 	public ConfigurationSection toConfigSecion() {
 		ConfigurationSection result = new YamlConfiguration();
-		
 		for(Level level : levels) {
-			result.set(level.getName().toLowerCase(), level.toConfigSection());
-		}
-
-		
+			result.set("levels." + level.getName().toLowerCase(), level.toConfigSection());
+		}		
 		return result;
 	}
 

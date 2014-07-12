@@ -6,3 +6,14 @@
 help-header: "Help page containing commands that you can execute"
 help-alias: "Command aliases: /gravityreversal, /gr"
 help-help: "&3/gr help &7-&r Shows this help page"
+help-editmode: "&3/gr editmode &7-&r Change if editmode is on"
+help-addlevel: "&3/gr addlevel &7-&r Add a level"
+
+
+
+addlevel-help: "/GR addlevel <name>"
+addlevel-noPermission: "You don't have permission to add a level"
+
+
+
+notFromConsole: "This command must be used as a player, sorry :("

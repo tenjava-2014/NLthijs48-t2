@@ -17,3 +17,6 @@ permissions:
   gravityreversal.help:
     description: Allows you to see the help pages
     default: true
+  gravityreversal.admin:
+    description: Allows you to add and change levels and settings
+    default: op

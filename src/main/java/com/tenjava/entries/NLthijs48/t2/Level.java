@@ -49,6 +49,15 @@ public class Level {
 		result.set("flippedMin", Utils.locationToConfig(flippedMin));
 		return result;
 	}
+	
+	public boolean isReady() {
+		boolean result = true;
+		result = result && normalMax != null;
+		result = result && normalMin != null;
+		result = result && flippedMax != null;
+		result = result && flippedMin != null;		
+		return result;
+	}
 
 
 }

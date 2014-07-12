@@ -72,12 +72,16 @@ public class GravityReversal extends JavaPlugin {
 		return commandManager;
 	}
 	
+	public Arena getArena() {
+		return arena;
+	}
+	
 	/**
 	 * Load the arena from the config
 	 */
 	public void loadArena() {		
 		if(getConfig().isSet("arena")) {
-			//arena = new Arena(getConfig().getConfigurationSection("arena" ).getValues(true));
+			arena = new Arena(getConfig().getConfigurationSection("arena"));
 		}
 	}
 	
@@ -91,3 +95,22 @@ public class GravityReversal extends JavaPlugin {
 		return ChatColor.translateAlternateColorCodes('&', input);		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

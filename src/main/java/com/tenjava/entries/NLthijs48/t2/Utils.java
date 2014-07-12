@@ -1,8 +1,5 @@
 package com.tenjava.entries.NLthijs48.t2;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
@@ -78,6 +75,15 @@ public class Utils {
 	 * @return The location
 	 */
 	public static Location configToLocation(ConfigurationSection config) {
+		if(config == null
+				|| config.isString("world")
+				|| config.isDouble("x")
+				|| config.isDouble("y")
+				|| config.isDouble("z") 
+				|| config.isString("yaw")
+				|| config.isString("pitch")) {
+			return null;
+		}
 		return new Location(
 				Bukkit.getWorld(config.getString("world")), 
 				(Double)config.getDouble("x"), 

@@ -35,6 +35,15 @@ public class Arena {
 		return levels;
 	}
 	
+	public Level getLevel(String name) {
+		for(Level level : getLevels()) {
+			if(level.getName().equalsIgnoreCase(name)) {
+				return level;
+			}
+		}
+		return null;
+	}
+	
 	public boolean isReady() {
 		boolean result = true;
 		// TODO check if a level exists

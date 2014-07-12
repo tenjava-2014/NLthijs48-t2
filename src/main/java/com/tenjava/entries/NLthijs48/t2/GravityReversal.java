@@ -60,7 +60,7 @@ public class GravityReversal extends JavaPlugin {
 		}
 	}
 	
-	public HashMap<UUID, HashMap<String, String>> getLevelSetupMap() {
+	public HashMap<UUID, HashMap<String, Object>> getLevelSetupMap() {
 		return levelSetup;
 	}
 	

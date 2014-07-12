@@ -1,5 +1,7 @@
 package com.tenjava.entries.NLthijs48.t2;
 
+import java.util.HashMap;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 import org.bukkit.ChatColor;
@@ -14,18 +16,20 @@ public class GravityReversal extends JavaPlugin {
 	private CommandManager commandManager = null;
 	private String chatPrefix;
 	
+	private HashMap<UUID, HashMap<String, Object>> levelSetup = null;
+	
 	////////// Constants ////////////
 	
 	/**
 	 * Called on the start of the plugin
 	 */
-	public void onEnable() {
-		
+	public void onEnable() {		
 		this.saveDefaultConfig();
 		this.languageManager = new LanguageManager(this);
 		this.commandManager = new CommandManager(this);
-		chatPrefix = getConfig().getString("chatPrefix");
-		
+		chatPrefix = getConfig().getString("chatPrefix");		
+		levelSetup = new HashMap<UUID, HashMap<String, Object>>();
+		new GRListener(this);
 		loadArena();
 	}
 	
@@ -54,6 +58,10 @@ public class GravityReversal extends JavaPlugin {
 				this.getLogger().info("Could not send message, target is wrong: " + langString);
 			}
 		}
+	}
+	
+	public HashMap<UUID, HashMap<String, String>> getLevelSetupMap() {
+		return levelSetup;
 	}
 	
 	/**

@@ -1,5 +1,7 @@
 package com.tenjava.entries.NLthijs48.t2.Commands;
 
+import java.util.HashMap;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -41,12 +43,13 @@ public class AddLevelCommand extends GRCommand {
 			plugin.message(sender, "addlevel-help");
 			return;
 		}
-		plugin.getArena().addLevel(new Level(args[0]));
+		Level level = new Level(args[0]);
+		plugin.getArena().addLevel(level);
 		plugin.message(sender, "addlevel-blocksstart");
-		
-		
-		
-		
+		HashMap<String, String> info = new HashMap<String, String>();
+		info.put("level", level.getName());
+		info.put("number", ""+0);
+		plugin.getLevelSetupMap().put(player.getUniqueId(), info);	
 	}
 
 }

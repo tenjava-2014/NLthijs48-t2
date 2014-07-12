@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 public class Utils {
 
@@ -59,14 +61,14 @@ public class Utils {
 	 * @param location The location to transform
 	 * @return The map with the location values
 	 */
-	public static Map<String, Object> locationToMap(Location location) {
-		HashMap<String, Object> result = new HashMap<String, Object>();
-		result.put("world", location.getWorld().getName());
-		result.put("x", location.getX());
-		result.put("y", location.getY());
-		result.put("z", location.getZ());
-		result.put("yaw", location.getYaw());
-		result.put("pitch", location.getPitch());		
+	public static ConfigurationSection locationToConfig(Location location) {
+		ConfigurationSection result = new YamlConfiguration();
+		result.set("world", location.getWorld().getName());
+		result.set("x", location.getX());
+		result.set("y", location.getY());
+		result.set("z", location.getZ());
+		result.set("yaw", Float.toString(location.getYaw()));
+		result.set("pitch", Float.toString(location.getPitch()));		
 		return result;
 	}
 	
@@ -75,14 +77,14 @@ public class Utils {
 	 * @param map The map to reconstruct from
 	 * @return The location
 	 */
-	public static Location mapToLocation(Map<String, Object> map) {
+	public static Location configToLocation(ConfigurationSection config) {
 		return new Location(
-				Bukkit.getWorld((String)map.get("world")), 
-				(Double)map.get("x"), 
-				(Double)map.get("y"), 
-				(Double)map.get("z"), 
-				(Float)map.get("yaw"), 
-				(Float)map.get("pitch"));
+				Bukkit.getWorld(config.getString("world")), 
+				(Double)config.getDouble("x"), 
+				(Double)config.getDouble("y"), 
+				(Double)config.getDouble("z"), 
+				Float.parseFloat(config.getString("yaw")), 
+				Float.parseFloat(config.getString("pitch")));
 	}
 	
 }

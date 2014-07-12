@@ -1,0 +1,7 @@
+##################################################
+## Language file for the GravityReversal plugin ##
+##################################################
+
+##### Help strings
+help-header: "Help page containing commands that you can execute"
+help-alias: "Command aliases: /gravityreversal, /gr"

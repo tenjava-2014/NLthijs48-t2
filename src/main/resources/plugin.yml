@@ -2,3 +2,18 @@ name: NLthijs48-t2
 main: com.tenjava.entries.NLthijs48.t2.TenJava
 version: '${project.version}'
 description: A cool gravity minigame
+commands:
+  GravityReversal:
+    description: For all commands use /gr help 
+    usage: /GravityReversal or /GR
+    permission: gravityreversal.help
+    permission-message: You don't have <permission>
+    aliases: [gr]
+ permissions:
+  gravityreversal.*:
+    description: Give access to all commands of GravityReversal
+    children:
+      gravityreversal.help: true
+  gravityreversal.help:
+    description: Allows you to see the help pages
+    default: true

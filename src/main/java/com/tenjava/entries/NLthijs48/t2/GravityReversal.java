@@ -11,10 +11,10 @@ public class GravityReversal extends JavaPlugin {
 	////////// Variables ////////////
 	private Arena arena = null;
 	private LanguageManager languageManager = null;
+	private CommandManager commandManager = null;
 	private String chatPrefix;
 	
 	////////// Constants ////////////
-	public static final String languageFolder = "lang";
 	
 	/**
 	 * Called on the start of the plugin
@@ -23,6 +23,7 @@ public class GravityReversal extends JavaPlugin {
 		
 		this.saveDefaultConfig();
 		this.languageManager = new LanguageManager(this);
+		this.commandManager = new CommandManager(this);
 		chatPrefix = getConfig().getString("chatPrefix");
 		
 		loadArena();
@@ -61,6 +62,14 @@ public class GravityReversal extends JavaPlugin {
 	 */
 	public LanguageManager getLanguageManager() {
 		return languageManager;
+	}
+	
+	/**
+	 * Get the commandmanager
+	 * @return The commandManager
+	 */
+	public CommandManager getCommandManager() {
+		return commandManager;
 	}
 	
 	/**

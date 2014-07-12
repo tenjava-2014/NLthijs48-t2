@@ -34,24 +34,17 @@ public class LanguageManager {
 	 * Saves the default language files if not already present
 	 */
 	public void saveDefaults() {
-		/* Create the language folder if it not exists */
-		File langFolder;
-		langFolder = new File(plugin.getDataFolder() + File.separator + GravityReversal.languageFolder);
-		if(!langFolder.exists()) {
-			langFolder.mkdirs();
-		}
-		
 		/* Create the language files, overwrites if a file already exists */
 		/* Overriding is necessary because otherwise with an update the new lang */
 		/* files would not be used, when translating your own use another */
 		/* file name as the default */
 		File langFile;
 		for(int i=0; i<languages.length; i++) {
-			langFile = new File(plugin.getDataFolder() + File.separator + GravityReversal.languageFolder + File.separator + languages[i] + ".yml");
+			langFile = new File(plugin.getDataFolder() + File.separator + languages[i] + ".yml");
 			InputStream input = null;
 			OutputStream output = null;
 			try {
-				input = plugin.getResource(GravityReversal.languageFolder + "/" + languages[i] + ".yml");
+				input = plugin.getResource(languages[i] + ".yml");
 				output = new FileOutputStream(langFile);
 		 
 				int read = 0;
@@ -83,7 +76,7 @@ public class LanguageManager {
 		
 		/* Save the current language file to the HashMap */
 		currentLanguage = new HashMap<String, String>();		
-		File file = new File(plugin.getDataFolder() + File.separator + GravityReversal.languageFolder + File.separator + plugin.getConfig().getString("language") + ".yml");
+		File file = new File(plugin.getDataFolder() + File.separator  + plugin.getConfig().getString("language") + ".yml");
 		ymlFile = YamlConfiguration.loadConfiguration(file);
 		map = ymlFile.getValues(true);
 		set = map.keySet();
@@ -95,7 +88,7 @@ public class LanguageManager {
 		
 		/* Save the default strings to the HashMap */
 		defaultLanguage = new HashMap<String, String>();
-		File standard = new File(plugin.getDataFolder() + File.separator + GravityReversal.languageFolder + "/" + languages[0]+ ".yml");
+		File standard = new File(plugin.getDataFolder() + File.separator + languages[0]+ ".yml");
         ymlFile = YamlConfiguration.loadConfiguration(standard);   
         map = ymlFile.getValues(true);
 		set = map.keySet();

@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import com.tenjava.entries.NLthijs48.t2.Commands.GRCommand;
+import com.tenjava.entries.NLthijs48.t2.Commands.HelpCommand;
 
 public class CommandManager implements CommandExecutor {
 	GravityReversal plugin;
@@ -15,8 +16,10 @@ public class CommandManager implements CommandExecutor {
 	public CommandManager(GravityReversal plugin) {
 		this.plugin = plugin;
 		commands = new ArrayList<GRCommand>();
+		// Adding commands
+		commands.add(new HelpCommand(plugin));
 		
-		/* Register commands in bukkit */
+		// Register commands in bukkit
 		plugin.getCommand("GravityReversal").setExecutor(this);	
 	}
 

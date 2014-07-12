@@ -5,3 +5,4 @@
 ##### Help strings
 help-header: "Help page containing commands that you can execute"
 help-alias: "Command aliases: /gravityreversal, /gr"
+help-help: "&3/gr help &7-&r Shows this help page"

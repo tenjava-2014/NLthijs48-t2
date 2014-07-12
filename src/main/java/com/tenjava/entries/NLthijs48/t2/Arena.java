@@ -10,14 +10,16 @@ public class Arena {
 
 	private ArrayList<Level> levels = null;
 	private boolean editMode = false;
+	private GravityReversal plugin;
 	
-	public Arena() {
-		//this.name = name;
+	public Arena(GravityReversal plugin) {
+		levels = new ArrayList<Level>();
+		this.plugin = plugin;
 	}
 	
-	public Arena(ConfigurationSection settings) {
+	public Arena(GravityReversal plugin, ConfigurationSection settings) {
 		levels = new ArrayList<Level>();
-
+		this.plugin = plugin;
 		if(settings.isSet("levels")) {
 			ConfigurationSection levels = settings.getConfigurationSection("levels");
 			for(String level : levels.getKeys(false)) {
@@ -55,7 +57,7 @@ public class Arena {
 	
 	
 	
-	public ConfigurationSection toConfigSecion() {
+	public ConfigurationSection toConfigSection() {
 		ConfigurationSection result = new YamlConfiguration();
 		for(Level level : levels) {
 			result.set("levels." + level.getName().toLowerCase(), level.toConfigSection());

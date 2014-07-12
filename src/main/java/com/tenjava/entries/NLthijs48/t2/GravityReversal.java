@@ -89,8 +89,15 @@ public class GravityReversal extends JavaPlugin {
 	 */
 	public void loadArena() {		
 		if(getConfig().isSet("arena")) {
-			arena = new Arena(getConfig().getConfigurationSection("arena"));
+			arena = new Arena(this, getConfig().getConfigurationSection("arena"));
+		} else {
+			arena = new Arena(this);
 		}
+	}
+	
+	public void saveArena() {
+		getConfig().set("arena", getArena().toConfigSection());		
+		this.saveConfig();
 	}
 	
 	

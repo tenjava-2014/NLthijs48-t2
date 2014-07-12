@@ -39,13 +39,13 @@ public class AddLevelCommand extends GRCommand {
 			return;
 		}
 		Player player = (Player)sender;
-		if(args.length < 1) {
+		if(args.length < 2) {
 			plugin.message(sender, "addlevel-help");
 			return;
 		}
-		Level level = new Level(args[0]);
+		Level level = new Level(args[1]);
 		plugin.getArena().addLevel(level);
-		plugin.message(sender, "addlevel-blocksstart");
+		plugin.message(sender, "addlevel-blockstart");
 		HashMap<String, Object> info = new HashMap<String, Object>();
 		info.put("level", level.getName());
 		info.put("number", ""+0);

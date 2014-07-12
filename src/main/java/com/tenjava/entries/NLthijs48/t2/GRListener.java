@@ -55,17 +55,18 @@ public class GRListener implements Listener {
 					Level level = plugin.getArena().getLevel((String)info.get("level"));
 					level.setNormalArea(normalMin, normalMax);
 					level.setFlippedArea(flippedMin, flippedMax);
+					plugin.saveArena();
 					plugin.message(player, "addlevel-success");		
 					plugin.getLevelSetupMap().remove(player.getUniqueId());
 				} else {
 					plugin.message(player, "addlevel-locationsFailed");
+					info.put("number", "" + (0));
 				}
-				plugin.message(player, "addlevel-flipped2done");	
 			}
 			
 			
 			
-			
+			event.setCancelled(true);
 		}		
 	}
 

@@ -59,6 +59,9 @@ public class Utils {
 	 * @return The map with the location values
 	 */
 	public static ConfigurationSection locationToConfig(Location location) {
+		if(location == null) {
+			return null;
+		}
 		ConfigurationSection result = new YamlConfiguration();
 		result.set("world", location.getWorld().getName());
 		result.set("x", location.getX());

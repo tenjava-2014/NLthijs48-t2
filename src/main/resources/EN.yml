@@ -17,7 +17,7 @@ addlevel-blockstart: "Level added, now the setup of the location starts. First c
 addlevel-normal1done: "First block set, now click the opposite corner of the normal part of the level"
 addlevel-normal2done: "Second block set, now click a corner of the upside down part of the level"
 addlevel-flipped1done: "First block of upside down set, now click the other corner of the upside down part"
-addlevel-flipped2done: "Second block setof upside down set, now click the other corner of the upside down part"
+addlevel-flipped2done: "Second block set of upside down set, now click the other corner of the upside down part"
 addlevel-locationsFailed: "Locations were not correct, size of the normal and flipped area are not the same"
 addlevel-success: "Locations of the level have been set"
 
